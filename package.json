@@ -12,7 +12,8 @@
     "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 100000 -r ts-node/register 'test/**/index.test.ts' --unhandled-rejections=strict --exit",
     "test-debug": "export DEBUG=* && npm test",
     "build": "rm -rf build && tsc -p .",
-    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 100000 -r ts-node/register 'test/**/index.test.ts' --unhandled-rejections=strict --exit"
+    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 100000 -r ts-node/register 'test/**/index.test.ts' --unhandled-rejections=strict --exit",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./src/ormconfig.ts"
   },
   "dependencies": {
     "@types/chai": "^4.2.18",
@@ -20,7 +21,10 @@
     "body-parser": "^1.19.0",
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.1",
     "express": "^4.17.1",
     "express-winston": "^4.1.0",

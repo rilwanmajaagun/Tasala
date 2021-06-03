@@ -1,19 +1,18 @@
 import {ConnectionOptions} from "typeorm";
 import 'dotenv/config'
+import {env} from './config/env'
 import path from "path";
 
 const isCompiled = path.extname(__filename).includes('js');
-
 export default {
-  name: 'default',
   type: "postgres",
     host: process.env.DB_HOST,
     port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.TYPEORM_DATABASE,
-    synchronize: !process.env.DB_NO_SYNC,
-    logging: !process.env.DB_NO_LOGS,
+    username: env.DB_USERNAME,
+    password: env.DB_PASSWORD,
+    database: env.DB_NAME,
+    synchronize: false,
+    logging: !env.DB_NO_LOGS,
     autoReconnect: true,
     reconnectTries: Number.MAX_VALUE,
     reconnectInterval: 2000,

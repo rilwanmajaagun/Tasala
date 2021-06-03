@@ -7,3 +7,5 @@ log/
 coverage
 .nyc_output
 server.log
+.env.development
+.env.test
