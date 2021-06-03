@@ -5,6 +5,9 @@
     "name": "Tigran Bayburtsyan",
     "url": "https://tigran.tech"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "tsc && node --unhandled-rejections=strict ./build/src/index.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' --files src/index.ts",
@@ -12,15 +15,22 @@
     "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 100000 -r ts-node/register 'test/**/index.test.ts' --unhandled-rejections=strict --exit",
     "test-debug": "export DEBUG=* && npm test",
     "build": "rm -rf build && tsc -p .",
-    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 100000 -r ts-node/register 'test/**/index.test.ts' --unhandled-rejections=strict --exit"
+    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha --timeout 100000 -r ts-node/register 'test/**/index.test.ts' --unhandled-rejections=strict --exit",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./src/ormconfig.ts"
   },
   "dependencies": {
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.3",
+    "typescript": "^3.9.9",
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",
     "body-parser": "^1.19.0",
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.1",
     "express": "^4.17.1",
     "express-winston": "^4.1.0",
@@ -28,18 +38,15 @@
     "pg": "^8.6.0",
     "typeorm": "^0.2.25",
     "typescript-rest": "^3.0.1",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "dotenv": "^10.0.0",
+    "@types/dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
     "@types/debug": "^4.1.5",
-    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.12",
-    "dotenv": "^10.0.0",
     "nodemon": "^2.0.4",
-    "source-map-support": "^0.5.19",
-    "ts-node": "^8.10.2",
-    "tslint": "^6.1.3",
-    "typescript": "^3.9.9"
+    "source-map-support": "^0.5.19"
   }
 }

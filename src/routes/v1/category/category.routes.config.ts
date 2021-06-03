@@ -2,7 +2,7 @@ import { CommonRoutesConfig } from "../common/common.routes.config";
 import express from "express";
 import CategoryController from '../../../controller/category';
 import CategoryMiddleware from '../../../middleware/category.middleware';
-
+import { CreateCategoryDto } from '../../../dto/Category.dto';
 
 
 
